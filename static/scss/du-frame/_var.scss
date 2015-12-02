@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+//变量设置
+// --------------------------------------------------
+
+// 颜色
+$body-bg: #f5f5f5 !default;           //背景
+$con-bg: #fff !default;               //白色背景
+$text-main-color: #333 !default;      //主要用于标题
+$text-aid-color: #999 !default;       //浅色文本
+$text-nav-color: #666 !default;       //主要用于底部导航文字图标颜色
+$border-color: #f5f5f5 !default;      //边框色
+$main-color: #10cca7 !default;        //主色调
+$text-color-visited: #00a284 !default;//链接后的颜色
+$hot-color: #ff5943 !default;         //热点
+$orange-color:#f82 !default;          //橙色
+$blue-color:#37acf4 !default;         //蓝色
+
+// 边框
+$border1: 1px solid $border-color;
+
+// 字体
+$font-family-zh: "Hiragino Sans GB", "Microsoft YaHei", sans-serif !default;
+$font-family-en: Arial, sans-serif !default;
+
+// 字体大小
+$font-size-10: 0.2rem !default;
+$font-size-12: 0.24rem !default;
+$font-size-14: 0.28rem !default;
+$font-size-16: 0.32rem !default;
+
+// 盒子模型
+$box-model: border-box !default;
+
+
+// z-index
+$z1: 99;
+$z2: 999;
+$z3: 999999;  //为了应付某些插件z-index 值过高的问题
+
+// 页面尺寸
+$web-max-width: 640px !default;
+$web-min-width: 320px !default;

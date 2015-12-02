@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+//按钮水平居中
+// --------------------------------------------------
+
+@mixin button($btn-w, $btn-h, $btn-color, $btn-bg, $btn-radius, $btn-font-size) {
+  width:$btn-w;
+  height:$btn-h;
+  display: block;
+  line-height: ($btn-h);
+  text-align:center;
+  color:$btn-color;
+  background: $btn-bg;
+  border-radius: $btn-radius;
+  font-size: $btn-font-size;
+  content: '';
+}

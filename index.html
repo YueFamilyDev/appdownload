@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>微生活·商家助手下载</title>
+    <!--rem 布局核心原生js代码-->
+    <script src="static/js/media.js"></script>
+    <!--公共样式-->
+    <link rel="stylesheet" href="static/css/common.css?2.1"/>
+    <!--组件样式-->
+    <link rel="stylesheet" href="static/css/style.css?2.1"/>
+    <!--图标样式-->
+    <link rel="stylesheet" href="static/css/font.css"/>
+
+</head>
+<body>
+<div class="box main-bg pad-con h75">
+    <header>
+        <img src="static/images/logo.png" alt=""/>
+    </header>
+    <div class="banner">
+        <div class="box_img">
+            <img src="static/images/box_img.png" alt=""/>
+        </div>
+        <div class="pp_s">
+            <img src="static/images/pp_s.png" alt=""/>
+        </div>
+        <div class="pp_b">
+            <img src="static/images/pp_b.png" alt=""/>
+        </div>
+        <div class="icon_img">
+            <img src="static/images/icon.png" alt=""/>
+        </div>
+    </div>
+    <div class="text_img">
+        <img src="static/images/text_img.png" alt=""/>
+        <p>点击按钮，立即下载</p>
+        <span><i class="i-down"></i><i class="i-down"></i></span>
+    </div>
+</div>
+<div class="box btn-group">
+    <a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.dudu.duduhelper" class="btn-submit"><i class="i-android"></i>安卓版</a><a href="https://itunes.apple.com/us/app/wei-sheng-huo-shang-jia-zhu/id1040029961?l=zh&ls=1&mt=8" id="iosbtn" class="btn-submit"><i class="i-apple"></i>苹果版</a>
+</div>
+<script type="text/javascript">
+    function is_weixin() {
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == "micromessenger") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    var isWeixin = is_weixin();
+    var winHeight = typeof window.innerHeight != 'undefined' ? window.innerHeight : document.documentElement.clientHeight;
+    console.log(winHeight);
+    function loadHtml(){
+        var div = document.createElement('div');
+        div.id = 'weixin-tip';
+        div.innerHTML = '<p><img src="static/images/live_weixin.png?1" alt="微信打开"/></p>';
+        document.body.appendChild(div);
+    }
+
+    function loadStyleText(cssText) {
+        var style = document.createElement('style');
+        style.rel = 'stylesheet';
+        style.type = 'text/css';
+        try {
+            style.appendChild(document.createTextNode(cssText));
+        } catch (e) {
+            style.styleSheet.cssText = cssText; //ie9以下
+        }
+        var head=document.getElementsByTagName("head")[0]; //head标签之间加上style样式
+        head.appendChild(style);
+    }
+
+    function ioshref(){
+        document.getElementById("iosbtn").href="javascript:";
+    }
+    var cssText = "#weixin-tip{position: fixed; left:0; top:0; background: rgba(0,0,0,0.8); filter:alpha(opacity=80); display:none; width: 100%; height:100%; z-index: 100;} #weixin-tip p{text-align: center; margin-top: 5%; padding:0 5%;}";
+    if(isWeixin){
+        loadHtml();
+        loadStyleText(cssText);
+    }
+    var alertbox = document.getElementById('weixin-tip');
+    var iosbtn = document.getElementById('iosbtn');
+    iosbtn.onclick = function () {
+        alertbox.style.display = 'block';
+    };
+    alertbox.onclick = function () {
+        this.style.display = 'none';
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,391 @@
+@charset "UTF-8";
+
+// 通用设置
+// --------------------------------------------------
+
+* {
+  @include box-sizing(border-box);
+}
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+// Body 设置
+
+html {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  font-family: $font-family-zh;
+  color: $text-nav-color;
+  line-height: 1.5;
+}
+
+// 表单元素设置
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  border-radius: 0;
+}
+
+// Links
+a {
+  color: $text-main-color;
+  text-decoration: none;
+  &:hover,
+  &:link,
+  &:focus {
+    text-decoration: none;
+  }
+  &:visited{
+    color:$text-main-color;
+  }
+}
+
+// 清除a默认样式
+.block {
+  display: block;
+}
+
+// 最外层页面设置
+.box {
+  width: 100%;
+  max-width: $web-max-width;
+  min-width: $web-min-width;
+  margin: 0 auto;
+}
+
+// 半透明弹层
+.alert-bg {
+  position: fixed;
+  z-index: $z3;
+  width: 100%;
+  max-width: $web-max-width;
+  min-width: $web-min-width;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .6);
+  display: none; //注意：默认隐藏！！
+}
+
+// 表格方式垂直居中
+.table-mid-father {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.table-mid-son {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+// box-flex
+.flex-father {              // flex布局的基础，父元素必备
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+}
+.flex-father-center {       // 如果父元素再加上这个样式，那么子元素就会水平，垂直居中！
+  -webkit-box-pack:center;
+  -webkit-box-align:center;
+  box-pack:center;          //一起使用 box-align 和 box-pack 属性，对 div 框的子元素进行居中。 目前没有浏览器支持 box-pack 属性。
+  box-align:center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.flex-son {                 // 可以让排列的子元素等宽
+  -moz-box-flex: 1.0;
+  -webkit-box-flex: 1.0;
+  box-flex: 1.0;
+}
+
+.box-center-center {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack:center;
+  -webkit-box-align:center;
+}
+
+// 图片设置
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.img-circle {
+  border-radius: 50%;
+}
+
+// 文本控制类
+.text-left           { text-align: left; }
+.text-right          { text-align: right; }
+.text-center         { text-align: center; }
+
+.text-lowercase      { text-transform: lowercase; }   //全部小写
+.text-uppercase      { text-transform: uppercase; }   //全部大写
+.text-capitalize     { text-transform: capitalize; }  //首字母大写
+
+.text-overflow-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.text-overflow-2 {
+  @include text-overflow(2);
+}
+.text-overflow-3 {
+  @include text-overflow(3);
+}
+
+//按钮样式
+
+.btn-submit{
+  @include button(2.5rem, 0.88rem, #666666, $con-bg, 2px, 0.36rem)
+}
+.btn-stop{
+  @include button(2.5rem, 0.88rem, $con-bg, $text-aid-color, 2px, 0.36rem)
+}
+// 浮动控制
+.cf {
+  @include clearfix();
+}
+.fl {
+  float: left !important;
+}
+.fr {
+  float: right !important;
+}
+
+// 显示隐藏
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+.invisible {
+  visibility: hidden;
+}
+
+// 过渡
+.my-transit {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+// 各类间隔
+.pad-con{
+  padding:0.3rem;
+}
+.p20{
+  padding: 0.2rem;
+}
+.ptb20{
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+.plr2{
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+}
+.plr4{
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+}
+.pr10{
+  padding-right: 0.1rem;
+}
+.mb20 {
+  margin-bottom: 0.2rem !important;
+}
+.mt40 {
+  margin-top: 0.4rem !important;
+}
+.mt20 {
+  margin-top: 0.2rem !important;
+}
+.mt10 {
+  margin-top: 0.1rem !important;
+}
+.ml20 {
+  margin-left: 0.2rem !important;
+}
+
+//字体颜色
+.orange-color{
+  color: $orange-color !important;
+}
+.blue-color{
+  color: $blue-color !important;
+}
+.main-color{
+  color: $main-color !important;
+}
+.text-aid-color{
+  color: $text-aid-color !important;
+}
+.text-main-color {
+  color: $text-main-color !important;
+}
+
+//字体大小
+.font-size-10 {
+  font-size: $font-size-10;
+}
+.font-size-12 {
+  font-size: $font-size-12;
+}
+.font-size-14 {
+  font-size: $font-size-14;
+}
+.font-size-16 {
+  font-size: $font-size-16;
+}
+
+//背景颜色
+.con-bg{
+  background: $con-bg;
+}
+.main-bg{
+  background: $main-color;
+}
+
+//边框
+.bor-tb{
+  border-top: $border1;
+  border-bottom: $border1;
+}
+.bor-t{
+  border-top: $border1;
+}
+.bor-b{
+  border-bottom: $border1;
+}
+
+
+// 1px边框解决方案
+.ui-border-t {
+  border-top: 1px solid #e0e0e0;
+}
+
+.ui-border-b {
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.ui-border-tb {
+  border-top: #e0e0e0 1px solid;
+  border-bottom: #e0e0e0 1px solid;
+  background-image: none;
+}
+
+.ui-border-l {
+  border-left: 1px solid #e0e0e0;
+}
+
+.ui-border-r {
+  border-right: 1px solid #e0e0e0;
+}
+
+.ui-border {
+  border: 1px solid #f5f5f5;
+}
+
+.ui-border-radius {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:2) {
+  .ui-border-radius {
+    position: relative;
+    border: 0;
+  }
+
+  .ui-border-radius:before {
+    content: "";
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #e0e0e0;
+    -webkit-transform: scale(0.5);
+    -webkit-transform-origin: 0 0;
+    padding: 1px;
+    -webkit-box-sizing: border-box;
+    border-radius: 8px;
+    pointer-events: none;
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:2) {
+  .ui-border {
+    position: relative;
+    border: 0;
+  }
+
+  .ui-border-t,.ui-border-b,.ui-border-l,.ui-border-r,.ui-border-tb {
+    border: 0;
+  }
+
+  .ui-border-t {
+    background-position: left top;
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.5,transparent),color-stop(0.5,#e0e0e0),to(#e0e0e0));
+  }
+
+  .ui-border-b {
+    background-position: left bottom;
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0.5,transparent),color-stop(0.5,#e0e0e0),to(#e0e0e0));
+  }
+
+  .ui-border-t,.ui-border-b,.ui-border-tb {
+    background-repeat: repeat-x;
+    -webkit-background-size: 100% 1px;
+  }
+
+  .ui-border-tb {
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.5,transparent),color-stop(05,#e0e0e0),to(#e0e0e0)),-webkit-gradient(linear,left top,left bottom,color-stop(0.5,transparent),color-stop(0.5,#e0e0e0),to(#e0e0e0));
+    background-position: top,bottom;
+  }
+
+  .ui-border-l {
+    background-position: left top;
+    background-image: -webkit-gradient(linear,right top,left top,color-stop(0.5,transparent),color-stop(0.5,#e0e0e0),to(#e0e0e0));
+  }
+
+  .ui-border-r {
+    background-position: right top;
+    background-image: -webkit-gradient(linear,left top,right top,color-stop(0.5,transparent),color-stop(0.5,#e0e0e0),to(#e0e0e0));
+  }
+
+  .ui-border-l,.ui-border-r {
+    background-repeat: repeat-y;
+    -webkit-background-size: 1px 100%;
+  }
+
+  .ui-border:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.5,transparent),color-stop(0.5,#e0e0e0),to(#e0e0e0)),-webkit-gradient(linear,left top,right top,color-stop(0.5,transparent),color-stop(0.5,#e0e0e0),to(#e0e0e0)),-webkit-gradient(linear,left top,left bottom,color-stop(0.5,transparent),color-stop(0.5,#e0e0e0),to(#e0e0e0)),-webkit-gradient(linear,right top,left top,color-stop(0.5,transparent),color-stop(0.5,#e0e0e0),to(#e0e0e0));
+    -webkit-background-size: 100% 1px,1px 100%,100% 1px,1px 100%;
+    background-size: 100% 1px,1px 100%,100% 1px,1px 100%;
+    -webkit-background-size: 100% 1px,1px 100%,100% 1px,1px 100%;
+    background-size: 100% 1px,1px 100%,100% 1px,1px 100%;
+    background-repeat: no-repeat;
+    background-position: top,right,bottom,left;
+    padding: 1px;
+    -webkit-box-sizing: border-box;
+    z-index: 10;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+// 文本溢出隐藏
+// --------------------------------------------------
+
+@mixin text-overflow($lines-num) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines-num;
+  -webkit-box-orient: vertical;
+}
